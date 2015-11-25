@@ -1,0 +1,17 @@
+/* CSS declarations go here */
+.hidden_div{
+    display:none;
+}
+
+body {
+    padding-top: 70px;
+}
+
+.navbar{
+    background-color: gainsboro;
+}
+
+#login-buttons{
+    padding-top: 10px;
+
+}
