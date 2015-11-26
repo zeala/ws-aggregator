@@ -15,3 +15,16 @@ body {
     padding-top: 10px;
 
 }
+
+a[disabled],
+a.disabled{
+    cursor: default !important;
+
+}
+
+/*
+#btnVoteUp{
+    cursor: default !important;
+    border: 3px solid blue;
+}
+*/

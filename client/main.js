@@ -1,6 +1,15 @@
-/////
-// template helpers
-/////
+Accounts.ui.config({
+    passwordSignupFields: "USERNAME_AND_EMAIL"
+});
+
+
+Template.websiteNav.rendered = function() {
+    if(!Meteor.user()) {
+        $('.login-link-text').text("Sign Up/Sign In");
+    } else {
+        $('.login-link-text').before('<span>Logged in as: </span>');
+    }
+};
 
 // helper function that returns all available websites
 Template.website_list.helpers({
@@ -10,6 +19,10 @@ Template.website_list.helpers({
     }
 });
 
+
+Template.website_item.rendered = function() {
+
+};
 
 Template.website_details.helpers({
 
@@ -32,6 +45,18 @@ Template.website_details.helpers({
 
 
 Template.website_item.helpers({
+    buttonsDisabled: function(){
+        console.log('meteor.user : ' + Meteor.user())
+        return Meteor.user() == null;
+         /**/
+    },
+    btnTooltip: function(){
+        if(!Meteor.user()) {
+            return "You must login to vote";
+        } else {
+
+        }
+    }
 
 });
 

@@ -1,0 +1,29 @@
+<!-- template that displays individual website entries -->
+<template name="website_item">
+    <div class="row js-item">
+        <div class="col-xs-12 col-sm-5">
+            <a href="{{url}}">{{title}}</a>
+            <p>
+                {{description}}
+            </p>
+            <div id="votingButtons">
+                <a disabled={{buttonsDisabled}}
+                   id="btnVoteUp" href="#"
+                   class="btn btn-default btn-xs js-upvote"
+                   title={{btnTooltip}}
+                   >
+                    <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                </a>
+                <a disabled={{buttonsDisabled}}
+                   id="btnVoteDown"  href="#"
+                   class="btn btn-default btn-xs js-downvote"
+                   title={{btnTooltip}}
+                   >
+                    <span class="fa fa-thumbs-o-down" aria-hidden="true"></span>
+                </a>
+            </div>
+            <hr/>
+        </div>
+        {{>website_details url=url }}
+    </div>
+</template>
