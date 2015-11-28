@@ -5,7 +5,7 @@ Meteor.startup(function () {
         Websites.insert({
             title:"Coursera",
             url:"http://www.coursera.org/",
-            description:"Universal access to the world’s best education.",
+            description: "Universal access to the world's best education.",
             createdOn:new Date()
         });
         Websites.insert({

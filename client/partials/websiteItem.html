@@ -7,6 +7,7 @@
                 {{description}}
             </p>
             <div id="votingButtons">
+                <span class="badge badge-info">1234{{upVotes}}</span>
                 <a disabled={{buttonsDisabled}}
                    id="btnVoteUp" href="#"
                    class="btn btn-default btn-xs js-upvote"
@@ -21,6 +22,7 @@
                    >
                     <span class="fa fa-thumbs-o-down" aria-hidden="true"></span>
                 </a>
+                <span class="badge">{{downVotes}}</span>
             </div>
             <hr/>
         </div>

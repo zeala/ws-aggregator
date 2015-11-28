@@ -1,0 +1,41 @@
+<component name="libraryTable">
+  <library name="meteor-packages-auto-import-os" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/practicalmeteor_underscore.string/2.3.3_3/os/packages/practicalmeteor_underscore.string.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/wizonesolutions_underscore-string/1.0.0/os/packages/wizonesolutions_underscore-string.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/peerlibrary_base-component/0.10.0/os/packages/peerlibrary_base-component.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/digilord_sugarjs/1.4.1/os/packages/digilord_sugarjs.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/twbs_bootstrap/3.3.5/os/packages/twbs_bootstrap.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/peerlibrary_assert/0.2.5/os/packages/peerlibrary_assert.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/peerlibrary_blaze-components/0.13.0/os/packages/peerlibrary_blaze-components.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/nefiltari_yaki/0.1.81/os/packages/nefiltari_yaki.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/fortawesome_fontawesome/4.4.0/os/packages/fortawesome_fontawesome.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/meteorhacks_async/1.0.0/os/packages/meteorhacks_async.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/cosmos_browserify/0.5.1/os/packages/cosmos_browserify.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/anonyfox_scrape/0.0.10/os/packages/anonyfox_scrape.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/froatsnook_request/2.53.3/os/packages/froatsnook_request.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.10.6/os/packages/momentjs_moment.js" />
+        <item url="file://$USER_HOME$/AppData/Local/.meteor/packages/sacha_spin/2.3.1/os/packages/sacha_spin.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/practicalmeteor_underscore.string/2.3.3_3/os/packages/practicalmeteor_underscore.string.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/wizonesolutions_underscore-string/1.0.0/os/packages/wizonesolutions_underscore-string.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/peerlibrary_base-component/0.10.0/os/packages/peerlibrary_base-component.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/digilord_sugarjs/1.4.1/os/packages/digilord_sugarjs.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/twbs_bootstrap/3.3.5/os/packages/twbs_bootstrap.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/peerlibrary_assert/0.2.5/os/packages/peerlibrary_assert.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/peerlibrary_blaze-components/0.13.0/os/packages/peerlibrary_blaze-components.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/nefiltari_yaki/0.1.81/os/packages/nefiltari_yaki.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/fortawesome_fontawesome/4.4.0/os/packages/fortawesome_fontawesome.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/meteorhacks_async/1.0.0/os/packages/meteorhacks_async.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/cosmos_browserify/0.5.1/os/packages/cosmos_browserify.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/anonyfox_scrape/0.0.10/os/packages/anonyfox_scrape.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/froatsnook_request/2.53.3/os/packages/froatsnook_request.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/momentjs_moment/2.10.6/os/packages/momentjs_moment.js" />
+      <root url="file://$USER_HOME$/AppData/Local/.meteor/packages/sacha_spin/2.3.1/os/packages/sacha_spin.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

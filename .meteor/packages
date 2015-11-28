@@ -29,3 +29,5 @@ http
 bitomule:simple-metacrawler
 accounts-ui
 accounts-password
+djedi:sanitize-html-client
+practicalmeteor:underscore.string
