@@ -3,9 +3,10 @@
     <div class="row js-item">
         <div class="col-xs-12 col-sm-5">
             <a href="{{url}}">{{title}}</a>
-            <p>
-                {{description}}
-            </p>
+                <p class="item-description-text">
+                    {{getFormattedDescription}}
+                </p>
+                <a href="/website/{{_id}}">Click to view the site details ...</a>
             <div id="votingButtons">
                 <span class="badge">{{upVotes}}</span>
                 <a disabled={{buttonsDisabled}}

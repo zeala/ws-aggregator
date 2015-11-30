@@ -75,6 +75,22 @@ Template.website_item.helpers({
     downVotes: function(){
 
         return VoteController.getDownVotes(this._id)
+    },
+
+    getFormattedDescription: function(){
+        var maxLength = 30;
+        if (this.description == undefined || this.description.length == 0){
+            return "";
+        }
+        if (this.description.length > maxLength)
+        {
+            var new_str = this.description.substr(0, maxLength);
+            new_str += "..."
+            console.log("newStr : " + new_str)
+            return new_str;
+        }
+        return this.description;
+
     }
 
 });

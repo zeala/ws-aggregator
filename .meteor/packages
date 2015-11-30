@@ -31,3 +31,4 @@ accounts-ui
 accounts-password
 djedi:sanitize-html-client
 practicalmeteor:underscore.string
+pcel:loading
