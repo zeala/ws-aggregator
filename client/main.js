@@ -1,4 +1,19 @@
+/// infinite scroll
+Session.set("websiteLimit", 6);
+lastScrollTop = 0;
+$(window).scroll(function(event){
 
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - 100)
+    {
+        var scrollTop = $(this).scrollTop();
+        if (scrollTop > lastScrollTop)
+        {
+            Session.set("websiteLimit", Session.get("websiteLimit") + 4);
+            lastScrollTop = scrollTop;
+        }
+    }
+
+});
 
 Accounts.ui.config({
     passwordSignupFields: "USERNAME_AND_EMAIL"
@@ -16,14 +31,18 @@ Template.websiteNav.rendered = function() {
 // helper function that returns all available websites
 Template.website_list.helpers({
     websites:function(){
-        var sites =  Websites.find({});
+        var sites =  Websites.find({}, {sort: {upVotes: -1, createdOn: -1},  limit: Session.get("websiteLimit")});
         return sites;
     }
 });
 
 
-Template.website_item.rendered = function() {
 
+Template.website_item.rendered = function() {
+    var instance = this;
+    Meteor.defer(function(){
+        $(instance.firstNode).addClass("just-added");
+    })
 };
 
 Template.website_details.helpers({
@@ -50,12 +69,12 @@ Template.website_item.helpers({
         }
     },
     upVotes: function(){
-        return Vote.getUpVotes(this._id)
+        return VoteController.getUpVotes(this._id)
     },
 
     downVotes: function(){
 
-        return Vote.getDownVotes(this._id)
+        return VoteController.getDownVotes(this._id)
     }
 
 });
@@ -64,23 +83,20 @@ Template.website_item.helpers({
 /////
 // template events
 /////
-
-Template.website_item.rendered = function(){
-    this.self = this;
-};
-
 Template.website_item.events({
     "click .js-upvote":function(event){
+        if (!Meteor.user()) return;
         var website_id = this._id;
         // put the code in here to add a vote to a website!
 
-        Vote.addVote(website_id, true);
+        VoteController.addVote(website_id, true);
         return false;// prevent the button from reloading the page
     },
     "click .js-downvote":function(event){
+        if (!Meteor.user()) return;
         var website_id = this._id;
         // put the code in here to remove a vote from a website!
-        Vote.addVote(website_id, false);
+        VoteController.addVote(website_id, false);
         return false;// prevent the button from reloading the page
     },
 
@@ -102,11 +118,9 @@ Template.website_form.events({
         // here is an example of how to get the url out of the form:
         var url = event.target.url.value;
         var title = event.target.title.value;
-        var description = event.target.title.description;
+        var description = event.target.description.value;
         var createdOn = new Date();
         var createdBy = Meteor.userId();
-
-        console.log(" url: " + url + " createdBy : " + createdBy);
 
         if (Meteor.user()){
             Websites.insert({
@@ -120,6 +134,9 @@ Template.website_form.events({
             });
         }
 
+        event.target.url.value = "";
+        event.target.title.value = "";
+        event.target.description.value = "";
         return false;// stop the form submit from reloading the page
 
     }

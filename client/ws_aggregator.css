@@ -19,8 +19,48 @@ body {
 a[disabled],
 a.disabled{
     cursor: default !important;
-
 }
+
+.just-added{
+    opacity: 0;
+    animation: fadeIn .3s linear forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/*
+li.new-item {
+    opacity: 0;
+    animation: fadeIn .3s linear forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+li.removed-item {
+    animation: removed-item-animation .6s ease-out forwards;
+    transform-origin: 50% 50%;
+}
+
+@keyframes removed-item-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(4);
+    }
+}
+*/
 
 .badge {
     padding: 2px 9px 2px;

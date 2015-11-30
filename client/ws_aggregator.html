@@ -3,11 +3,19 @@
     <title>siteace</title>
 </head>
 
-<body>
+<body></body>
+<!--
 {{> websiteNav }}
 
 <div class="container">
     {{> website_form}}
     {{> website_list}}
 </div>
-</body>
+-->
+
+
+<template name="ApplicationLayout">
+    {{> yield "navbar"}}
+    {{> yield "websiteForm"}}
+    {{> yield "main"}}
+</template>
