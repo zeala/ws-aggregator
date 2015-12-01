@@ -3,7 +3,10 @@
         <div class="row js-item-details">
             <div class="col-xs-12 col-sm-8">
                 <a href="/" class="btn btn-primary btn-xs">Back to the main page</a>
+
+                {{ _id}}
                 <h2> {{title}}</h2>
+                    {{> chart id=_id }}
 
                 <div class="comment-section">
                     {{> commentsBox id="blah" }}
@@ -11,4 +14,7 @@
             </div>
         </div>
     </div>
+</template>
+<template name="chart">
+    <div id="chart" class='chart'></div>
 </template>
