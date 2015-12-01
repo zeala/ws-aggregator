@@ -127,7 +127,7 @@ Template.website_item.events({
 
 Template.website_form.events({
     "click .js-toggle-website-form":function(event){
-        $("#website_form").toggle('slow');
+        $('#loginModal').modal('show');
     },
     "submit .js-save-website-form":function(event){
 
@@ -153,6 +153,7 @@ Template.website_form.events({
         event.target.url.value = "";
         event.target.title.value = "";
         event.target.description.value = "";
+        $('#loginModal').modal('hide');
         return false;// stop the form submit from reloading the page
 
     }
