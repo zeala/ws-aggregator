@@ -19,6 +19,13 @@ Accounts.ui.config({
     passwordSignupFields: "USERNAME_AND_EMAIL"
 });
 
+Comments.ui.config({
+    limit: 5, // default 10
+    loadMoreCount: 10, // default 20
+    template: 'bootstrap', // default 'semantic-ui'
+    defaultAvatar: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
+});
+
 
 Template.websiteNav.rendered = function() {
     if(!Meteor.user()) {
@@ -36,6 +43,19 @@ Template.website_list.helpers({
     }
 });
 
+Template.commentsBox.helpers({
+    comment: function(){
+        return [];
+    }
+   /* comment: function(){
+        var cmts = UserComments.find({});
+        var comments_array = cmts.fetch();
+        console.log("***** cmts : " + cmts);
+        console.log(cmts);
+        console.log(comments_array);
+        return comments_array;
+    }*/
+});
 
 
 Template.website_item.rendered = function() {
