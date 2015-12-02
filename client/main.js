@@ -35,7 +35,22 @@ Template.websiteNav.rendered = function() {
     }
 };
 
-// helper function that returns all available websites
+// HELPERS
+
+Template.body.helpers({
+    username:function(){
+
+        if (Meteor.user()){
+            return Meteor.user().username;
+        }
+        else{
+            return "guest"
+        }
+        return "n/a";
+    },
+
+});
+
 Template.website_list.helpers({
     websites:function(){
         var sites =  Websites.find({}, {sort: {upVotes: -1, createdOn: -1},  limit: Session.get("websiteLimit")});
@@ -89,6 +104,21 @@ Template.website_item.helpers({
 
     downVotes: function(){
         return VoteController.getDownVotes(this._id)
+    },
+
+    addedOn: function(){
+        console.log( Template.parentData())
+        return moment(this.createdOn).format("ddd, DD MMMM YYYY");
+    },
+
+    getUser:function(user_id) {
+        var user = Meteor.users.findOne({_id: user_id});
+        if (user) {
+            return user.username;
+        }
+        else {
+            return "n/a"
+        }
     },
 
     getFormattedDescription: function(){
