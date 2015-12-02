@@ -2,15 +2,22 @@
     <div class="container">
         <div class="row js-item-details">
             <div class="col-xs-12 col-sm-8">
-                <a href="/" class="btn btn-primary btn-xs">Back to the main page</a>
+                <a href="/"><i class="fa fa-chevron-circle-left"></i> Back to the main page</a>
+                <h3> {{title}}</h3>
 
-                {{ _id}}
-                <h2> {{title}}</h2>
+                <blockquote>
+                    <p class="">{{description}}</p>
+                </blockquote>
+
                     {{> chart id=_id }}
+                <p class="small-text">
+                    Added on {{addedOn}}
+                </p>
 
                 <div class="comment-section">
-                    {{> commentsBox id="blah" }}
+                    {{> commentsBox id=_id }}
                 </div>
+
             </div>
         </div>
     </div>

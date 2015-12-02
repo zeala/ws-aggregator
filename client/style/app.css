@@ -22,3 +22,22 @@
 .c3-axis-x > path.domain, .tick > line[x2="-6"] {
     visibility: hidden;
 }
+
+.c3 svg{
+    font-size: 12px;
+}
+
+.c3-text{
+    fill: #000000 !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.comment-form .btn{
+    font-size: 12px !important;
+    padding: 1px 8px !important;
+}
+
+.small-text{
+    font-size: 11px;
+}

@@ -43,19 +43,6 @@ Template.website_list.helpers({
     }
 });
 
-Template.commentsBox.helpers({
-    comment: function(){
-        return [];
-    }
-   /* comment: function(){
-        var cmts = UserComments.find({});
-        var comments_array = cmts.fetch();
-        console.log("***** cmts : " + cmts);
-        console.log(cmts);
-        console.log(comments_array);
-        return comments_array;
-    }*/
-});
 
 
 Template.website_item.rendered = function() {
@@ -79,21 +66,28 @@ Template.website_details.helpers({
 
 Template.website_item.helpers({
     buttonsDisabled: function(){
-        return Meteor.user() == null;
+        return VoteController.areVotingButtonsDisabled(this._id);
     },
     btnTooltip: function(){
         if(!Meteor.user()) {
             return "You must login to vote";
-        } else {
-
+        } else if (VoteController.hasUpvoted(this._id)) {
+            return "You voted up";
+        } else if (VoteController.hasDownvoted(this._id)) {
+            return "You voted down";
         }
     },
     upVotes: function(){
         return VoteController.getUpVotes(this._id)
     },
+    hasUserUpvoted: function(){
+        return VoteController.hasUpvoted(this._id)
+    },
+    hasUserDownvoted: function(){
+      return VoteController.hasDownvoted(this._id)
+    },
 
     downVotes: function(){
-
         return VoteController.getDownVotes(this._id)
     },
 
@@ -105,33 +99,36 @@ Template.website_item.helpers({
         if (this.description.length > maxLength)
         {
             var new_str = this.description.substr(0, maxLength);
-            new_str += "..."
-            console.log("newStr : " + new_str)
+            new_str += "...";
             return new_str;
         }
         return this.description;
 
     }
-
 });
 
+Template.websiteDetailsFull.helpers({
+    addedOn: function(){
+        console.log( Template.parentData())
+        return moment(this.createdOn).format("ddd, DD MMMM YYYY");
+    }
+});
 
 /////
 // template events
 /////
 Template.website_item.events({
     "click .js-upvote":function(event){
-        if (!Meteor.user()) return;
         var website_id = this._id;
-        // put the code in here to add a vote to a website!
-
+        if (VoteController.areVotingButtonsDisabled(website_id)) return;
+        //otherwise update the vote
         VoteController.addVote(website_id, true);
         return false;// prevent the button from reloading the page
     },
     "click .js-downvote":function(event){
-        if (!Meteor.user()) return;
         var website_id = this._id;
-        // put the code in here to remove a vote from a website!
+        if (VoteController.areVotingButtonsDisabled(website_id)) return;
+        //otherwise update the vote
         VoteController.addVote(website_id, false);
         return false;// prevent the button from reloading the page
     },

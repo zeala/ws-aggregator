@@ -11,14 +11,14 @@
                 <span class="badge">{{upVotes}}</span>
                 <a disabled={{buttonsDisabled}}
                    id="btnVoteUp" href="#"
-                   class="btn btn-default btn-xs js-upvote"
+                   class="btn {{#if hasUserUpvoted }}btn-primary{{else}}btn-default{{/if}} btn-xs js-upvote"
                    title={{btnTooltip}}
                    >
                     <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
                 </a>
                 <a disabled={{buttonsDisabled}}
                    id="btnVoteDown"  href="#"
-                   class="btn btn-default btn-xs js-downvote"
+                   class="btn  {{#if hasUserDownvoted }}btn-primary{{else}}btn-default{{/if}} btn-xs js-downvote"
                    title={{btnTooltip}}
                    >
                     <span class="fa fa-thumbs-o-down" aria-hidden="true"></span>

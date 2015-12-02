@@ -21,7 +21,7 @@ Template.chart.rendered = function () {
             left: 75
         },
         color: {
-            pattern: ['#FABF62', '#ACB6DD']
+            pattern: ['#457D4B', '#2458AB']
         },
         data: {
             columns: [
@@ -33,7 +33,7 @@ Template.chart.rendered = function () {
             labels : true,
 
             color: function(inColor, data) {
-                var colors = ['#FABF62', '#ACB6DD'];
+                var colors = ['#457D4B', '#2458AB'];
                 if(data.index !== undefined) {
                     return colors[data.index];
                 }
@@ -68,17 +68,12 @@ Template.chart.rendered = function () {
     });
 
     this.autorun(function (tracker) {
-        console.log(" tracker : " + tracker);
-        console.log(tracker);
-        console.log("session get : " + Session.get('votes'));
         chart.load({columns: [
             Session.get('votes'),
             []
         ]});
     });
-
-    console.log(" chart. rendered called ?")
-}
+};
 
     /*Session.set('x', ['x', 30, 50, 75, 100, 120]);
     Session.set('data1', ['data1', 30, 200, 100, 400, 150]);
