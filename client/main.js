@@ -67,16 +67,15 @@ Template.website_item.rendered = function() {
     })
 };
 
-Template.website_details.helpers({
-
-    image: function(){
+/*Template.website_details.helpers({
+    websiteData: function(){
         return Meteor.call("getWebsiteData", Template.parentData().url, function(error, response){
             if (error){
             }
             return response;
         });
     }
-});
+});*/
 
 
 Template.website_item.helpers({
@@ -107,7 +106,6 @@ Template.website_item.helpers({
     },
 
     addedOn: function(){
-        console.log( Template.parentData())
         return moment(this.createdOn).format("ddd, DD MMMM YYYY");
     },
 
@@ -147,6 +145,14 @@ Template.websiteDetailsFull.helpers({
 /////
 // template events
 /////
+
+Template.website_details.events({
+    "click .js-get-data":function(event){
+        console.log(event.target);
+        console.log(event.target.websiteData);
+    }
+});
+
 Template.website_item.events({
     "click .js-upvote":function(event){
         var website_id = this._id;
