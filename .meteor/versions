@@ -69,6 +69,8 @@ less@2.5.1
 livedata@1.0.15
 localstorage@1.0.5
 logging@1.0.8
+loupax:url-utils@0.0.1
+loupax:web-scraper@0.0.2
 meteor@1.1.10
 meteor-base@1.0.1
 meteorhacks:async@1.0.0
@@ -81,6 +83,7 @@ momentjs:moment@2.10.6
 mongo@1.1.3
 mongo-id@1.0.1
 mongo-livedata@1.0.9
+mrt:cheerio@0.3.2
 nefiltari:yaki@0.1.81
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1

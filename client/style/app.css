@@ -53,7 +53,6 @@
 
 .small-text{
     font-size: 11px;
-    float: left;
 }
 
 .text-float-right{
@@ -75,4 +74,20 @@
 
 .item-details-div{
     height: 18px;
+}
+
+/*.chart{
+    height : 70px;
+
+}*/
+
+li #item-content{
+    background: aliceblue;
+    border-bottom: 1px dotted lightsteelblue;
+    padding-bottom: 8px;
+    padding-top: 8px;
+}
+li:nth-child(odd) #item-content {
+    background: white;
+
 }

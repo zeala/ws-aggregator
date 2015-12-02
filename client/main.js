@@ -122,7 +122,7 @@ Template.website_item.helpers({
     },
 
     getFormattedDescription: function(){
-        var maxLength = 30;
+        var maxLength = 200;
         if (this.description == undefined || this.description.length == 0){
             return "";
         }

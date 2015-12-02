@@ -2,37 +2,39 @@
 <template name="website_item">
     <div class="row js-item">
         <div class="col-xs-12 col-sm-7">
-            <a href="{{url}}">{{title}}</a>
-                <p class="item-description-text">
-                    {{getFormattedDescription}}
-                </p>
+            <div id="item-content">
+                <a href="{{url}}">{{title}}</a>
+                    <p class="item-description-text">
+                        {{getFormattedDescription}}
+                    </p>
 
-            <div id="votingButtons">
-                <span class="badge">{{upVotes}}</span>
-                <a disabled={{buttonsDisabled}}
-                   id="btnVoteUp" href="#"
-                   class="btn {{#if hasUserUpvoted }}btn-primary{{else}}btn-default{{/if}} btn-xs js-upvote"
-                   title={{btnTooltip}}
-                   >
-                    <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
-                </a>
-                <a disabled={{buttonsDisabled}}
-                   id="btnVoteDown"  href="#"
-                   class="btn  {{#if hasUserDownvoted }}btn-primary{{else}}btn-default{{/if}} btn-xs js-downvote"
-                   title={{btnTooltip}}
-                   >
-                    <span class="fa fa-thumbs-o-down" aria-hidden="true"></span>
-                </a>
-                <span class="badge">{{downVotes}}</span>
+                <div id="votingButtons">
+                    <span class="badge">{{upVotes}}</span>
+                    <a disabled={{buttonsDisabled}}
+                       id="btnVoteUp" href="#"
+                       class="btn {{#if hasUserUpvoted }}btn-primary{{else}}btn-default{{/if}} btn-xs js-upvote"
+                       title={{btnTooltip}}
+                       >
+                        <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                    </a>
+                    <a disabled={{buttonsDisabled}}
+                       id="btnVoteDown"  href="#"
+                       class="btn  {{#if hasUserDownvoted }}btn-primary{{else}}btn-default{{/if}} btn-xs js-downvote"
+                       title={{btnTooltip}}
+                       >
+                        <span class="fa fa-thumbs-o-down" aria-hidden="true"></span>
+                    </a>
+                    <span class="badge">{{downVotes}}</span>
+                </div>
+                <div class="item-details-div">
+                    <p>
+                    <span class="small-text">Added by {{getUser createdBy}} on {{addedOn}} </span>
+                    <span class="text-float-right"> <a href="/website/{{_id}}">More <i class="fa fa-chevron-circle-right"></i> </a></span>
+                    </p>
+                </div>
             </div>
-            <div class="item-details-div">
-                <p>
-                <span class="small-text">Added by {{getUser createdBy}} on {{addedOn}} </span>
-                <span class="text-float-right"> <a href="/website/{{_id}}">More <i class="fa fa-chevron-circle-right"></i> </a></span>
-                </p>
-            </div>
-            <hr/>
         </div>
+
         <div class="col-sm-5">
             {{>website_details url=url }}
         </div>
