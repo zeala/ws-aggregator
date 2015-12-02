@@ -26,6 +26,19 @@ Comments.ui.config({
     defaultAvatar: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
 });
 
+WebsiteIndex = new EasySearch.Index({
+    collection: Websites,
+    fields: ['url', 'description', 'title'],
+    engine: new EasySearch.Minimongo()
+});
+
+/*Tracker.autorun(function () {
+    var cursor = WebsiteIndex.search('bbc'); // search all docs that contain "Marie" in the name or score field
+
+    console.log(cursor.fetch()); // log found documents with default search limit
+    console.log(cursor.count()); // log count of all found documents
+});*/
+
 
 Template.websiteNav.rendered = function() {
     if(!Meteor.user()) {
@@ -36,6 +49,12 @@ Template.websiteNav.rendered = function() {
 };
 
 // HELPERS
+
+Template.searchBox.helpers({
+        websiteIndex: function(){
+            return WebsiteIndex
+        }
+});
 
 Template.body.helpers({
     username:function(){
@@ -64,18 +83,25 @@ Template.website_item.rendered = function() {
     var instance = this;
     Meteor.defer(function(){
         $(instance.firstNode).addClass("just-added");
-    })
+    });
+
+    /*Meteor.call("getWebsiteData", instance.data.url, function(error, result){
+        console.log("Session : " + Session + " instance : " + instance );
+        console.log(result);
+        if (Session.get(instance.data.url) == undefined)
+        {
+            //Session.set(instance.data.url, WebsiteParser.parseSiteData(result));
+
+            return result;
+        }
+        else
+        {
+            console.log("WEBSITE DATA ALREADY EXISTS")
+        }
+
+    });*/
 };
 
-/*Template.website_details.helpers({
-    websiteData: function(){
-        return Meteor.call("getWebsiteData", Template.parentData().url, function(error, response){
-            if (error){
-            }
-            return response;
-        });
-    }
-});*/
 
 
 Template.website_item.helpers({
@@ -132,12 +158,17 @@ Template.website_item.helpers({
         }
         return this.description;
 
+    },
+
+    websiteData: function(){
+        //console.log("Session.get(url) : " + Session.get(this.url))
+        console.log("--- website data : " + Session.get(this.url));
+        return Session.get(this.url);
     }
 });
 
 Template.websiteDetailsFull.helpers({
     addedOn: function(){
-        console.log( Template.parentData())
         return moment(this.createdOn).format("ddd, DD MMMM YYYY");
     }
 });
@@ -146,10 +177,20 @@ Template.websiteDetailsFull.helpers({
 // template events
 /////
 
+Template.websiteNav.events({
+    "click .js-test-search": function(event){
+        var cursor = WebsiteIndex.search('bbc'); // search all docs that contain "Marie" in the name or score field
+
+        console.log(cursor.fetch()); // log found documents with default search limit
+        console.log(cursor.count()); // log count of all found documents
+    }
+})
+
 Template.website_details.events({
     "click .js-get-data":function(event){
-        console.log(event.target);
-        console.log(event.target.websiteData);
+        console.log(this);
+        console.log(Template.parentData().websiteData);
+        console.log(Session.get(this.url));
     }
 });
 

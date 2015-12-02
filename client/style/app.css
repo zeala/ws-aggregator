@@ -13,6 +13,19 @@
     display: inline;
 }
 
+.navbar-right {
+    padding-top: 10px
+}
+
+#login-buttons{
+    padding-top: 5px;
+    padding-left: 10px;
+}
+
+#searchInput{
+    border-radius: 4px;
+}
+
 .error-template {padding: 40px 15px;text-align: center;}
 .error-actions {margin-top:15px;margin-bottom:15px;}
 .error-actions .btn { margin-right:10px; }
@@ -59,6 +72,7 @@
     float: right;
     padding-right: 30px;
 }
+
 
 .comment-section{
     background-color: aliceblue;

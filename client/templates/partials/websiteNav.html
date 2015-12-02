@@ -27,8 +27,13 @@
                         </li>
 
                         <li><a href="contactus.html"><i class="fa fa-envelope-o"></i> Contact</a></li>
+                        <li>{{ searchInputBox }} </li>
                     </ul>
+
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            {{> searchInputBox }}
+                        </li>
                         <li>
                             {{#if currentUser}}
                                 {{> loginButtons align='right'}}
@@ -36,6 +41,7 @@
 
                             {{/if}}
                         </li>
+
                     </ul>
                 </div>
             </div>

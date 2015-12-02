@@ -34,3 +34,5 @@ practicalmeteor:underscore.string
 pcel:loading
 arkham:comments-ui
 peernohell:c3
+peerlibrary:xml2js
+easysearch:autosuggest

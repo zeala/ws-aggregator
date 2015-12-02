@@ -1,0 +1,9 @@
+<template name="searchBox">
+    {{> EasySearch.Input index=websiteIndex placeholder="Enter a keyword" }}
+
+    <ul class="list-group">
+        {{#EasySearch.Each index=websiteIndex }}
+            <li class="list-group-item">Keyword: {{ title }}</li>
+        {{/EasySearch.Each}}
+    </ul>
+</template>

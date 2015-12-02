@@ -30,19 +30,7 @@ Meteor.startup(function () {
         });
     };
 
-    Meteor.methods({
 
-        getWebsiteData: function (url){
-
-            var result = HTTP.get(url);
-            //var websiteData = Scrape.website(url);
-            console.log(" GET url : " + url);
-            console.log(" blah ");
-
-            //return websiteData
-            return result;
-        }
-    })
 
 
 });

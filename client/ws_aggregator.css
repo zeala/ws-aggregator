@@ -16,9 +16,8 @@ hr {
     background-color: #e6eef5;
 }
 
-#login-buttons{
-    padding-top: 10px;
-
+.fa.fa-search{
+    top: 5px;
 }
 
 a[disabled],
