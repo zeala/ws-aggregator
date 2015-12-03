@@ -1,10 +1,44 @@
 Template.searchInputBox.events({
     "keyup #searchInput": function(event, element){
+        var str = $('#searchInput').val();
         var cursor = WebsiteIndex.search(str);
         console.log(cursor.fetch());
         console.log(cursor.count());
-        Session.set("searchResults", cursor.fetch())
+        console.log("string : " + str);
+        Session.set("searchResults", cursor.fetch());
+
+        if (cursor.count() == 0 || str == undefined || str == ""){
+            $('#searchDropDown').hide();
+        }else{
+            $('#searchDropDown').show();
+        }
+    },
+    "click #searchInput": function(event){
+        var str = $('#searchInput').val();
+        if (str && str.length > 0){
+            console.log("string.length : " + str.length);
+            $('#searchDropDown').toggle();
+        }else{
+            $("#searchDropDown").hide();
+        }
+    },
+
+    "click .search-list-item": function(event, element){
+        console.log(this);
+        //Session.set("votes", ['votes', website_item.upVotes, website_item.downVotes])
+        var website_item = Websites.find({_id: this._id}).fetch()[0];
+        Session.set("votes", ['votes', website_item.upVotes, website_item.downVotes])
     }
+
+
+   /*  $('body').on('click', function (e) {
+     if (!$('li.dropdown.mega-dropdown').is(e.target)
+     && $('li.dropdown.mega-dropdown').has(e.target).length === 0
+     && $('.open').has(e.target).length === 0
+     ) {
+     $('li.dropdown.mega-dropdown').removeClass('open');
+     }
+     });*/
 });
 
 

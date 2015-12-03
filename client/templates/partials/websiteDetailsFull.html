@@ -7,7 +7,7 @@
                 <h3> {{title}}</h3>
 
                 <blockquote>
-                    <p class="">{{description}}</p>
+                    <p class="well">{{description}}</p>
                 </blockquote>
                 <p class="small-text">
                     Added on {{addedOn}}
@@ -21,6 +21,29 @@
                 </div>
 
             </div>
+            <div class="col-sm-4 hidden-sm">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Panel heading</div>
+                    <!--<div class="panel-body">
+                        <p>...</p>
+                    </div>-->
+
+                    <!-- Table -->
+                   <!-- <table class="table">
+                        ...
+                    </table>-->
+                    <ul id="all-sites-title-list" class="list-unstyled">
+                        {{#each allSites}}
+                            <li>{{title}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+
+            </div>
+
+
         </div>
     </div>
 </template>

@@ -1,8 +1,15 @@
 <template name="searchInputBox">
     <div class="input-group input-group-sm">
 
-        <input id="searchInput" type="text" class="form-control " placeholder="Enter a keyword">
+        <input id="searchInput" type="text"
+               class="form-control " placeholder="Enter a keyword"
+               dropdown-toggle>
         <span class="fa fa-search form-control-feedback" aria-hidden="true" ></span>
 
     </div>
+    <ul id="searchDropDown" class="search-results dropdown-menu dropdown-menu-right" aria-labelledby="searchInput">
+        {{#each searchResults}}
+            <li class="search-list-item list-group-item" id={{_id}}><a href="/website/{{_id}}">{{ title }} </a> </li>
+        {{/each}}
+    </ul>
 </template>

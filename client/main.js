@@ -12,7 +12,16 @@ $(window).scroll(function(event){
             lastScrollTop = scrollTop;
         }
     }
+});
 
+//$('body').on('click', function (event) {
+$('body').click(function(event){
+    console.log(" body clicked")
+    if (!$(".search-list-item").is(event.target)
+        && $('.search-list-item').has(event.target).length === 0
+        && $('.open').has(event.target).lenght === 0) {
+        $('.search-list-item').removeClass('open');
+    }
 });
 
 Accounts.ui.config({
@@ -32,13 +41,6 @@ WebsiteIndex = new EasySearch.Index({
     engine: new EasySearch.Minimongo()
 });
 
-/*Tracker.autorun(function () {
-    var cursor = WebsiteIndex.search('bbc'); // search all docs that contain "Marie" in the name or score field
-
-    console.log(cursor.fetch()); // log found documents with default search limit
-    console.log(cursor.count()); // log count of all found documents
-});*/
-
 
 Template.websiteNav.rendered = function() {
     if(!Meteor.user()) {
@@ -50,9 +52,12 @@ Template.websiteNav.rendered = function() {
 
 // HELPERS
 
-Template.searchBox.helpers({
+Template.searchInputBox.helpers({
         websiteIndex: function(){
             return WebsiteIndex
+        },
+        searchResults: function(){
+            return Session.get("searchResults");
         }
 });
 
@@ -76,31 +81,6 @@ Template.website_list.helpers({
         return sites;
     }
 });
-
-
-
-Template.website_item.rendered = function() {
-    var instance = this;
-    Meteor.defer(function(){
-        $(instance.firstNode).addClass("just-added");
-    });
-
-    /*Meteor.call("getWebsiteData", instance.data.url, function(error, result){
-        console.log("Session : " + Session + " instance : " + instance );
-        console.log(result);
-        if (Session.get(instance.data.url) == undefined)
-        {
-            //Session.set(instance.data.url, WebsiteParser.parseSiteData(result));
-
-            return result;
-        }
-        else
-        {
-            console.log("WEBSITE DATA ALREADY EXISTS")
-        }
-
-    });*/
-};
 
 
 
@@ -170,6 +150,11 @@ Template.website_item.helpers({
 Template.websiteDetailsFull.helpers({
     addedOn: function(){
         return moment(this.createdOn).format("ddd, DD MMMM YYYY");
+    },
+
+    allSites: function(){
+        var sites =  Websites.find({}, {sort: {upVotes: -1, createdOn: -1},  limit: Session.get("websiteLimit")});
+        return sites;
     }
 });
 

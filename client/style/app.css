@@ -24,6 +24,17 @@
 
 #searchInput{
     border-radius: 4px;
+    width: 200px;
+}
+
+.search-list-item{
+    white-space: nowrap;
+    padding: 0;
+}
+
+#searchDropDown{
+    min-width: 200px;
+    padding: 1px;
 }
 
 .error-template {padding: 40px 15px;text-align: center;}
@@ -77,12 +88,14 @@
 .comment-section{
     background-color: aliceblue;
     border: 1px dotted;
+    border-radius: 3px;
 }
 
 .section-padded{
     background-color: aliceblue;
     border: 1px dotted;
     padding: 15px;
+    border-radius: 3px;
 }
 
 
@@ -90,11 +103,9 @@
     height: 18px;
 }
 
-/*.chart{
-    height : 70px;
-
-}*/
-
+.all-sites-title-list{
+    margin-left: 30px;
+}
 li #item-content{
     background: aliceblue;
     border-bottom: 1px dotted lightsteelblue;
