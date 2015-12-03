@@ -147,6 +147,10 @@ li:nth-child(odd) #item-content {
     padding: 4px;
 }
 
+.websites-table-row{
+    cursor: default;
+}
+
 .websites-table-row:nth-of-type(odd){
     background-color: aliceblue !important;
 }

@@ -106,11 +106,9 @@ Template.allWebsitesTable.events({
 
     },
     "click .js-sort-by-downvotes": function(event){
-        console.log("sort by down votes");
         var row = $(event.target);
-        console.log("row" + row);
-        console.log(Template.parentData());
-        if (row.hasClass("sortAscend")){
+        SortManager.sortCollection(Websites, ["downVotes"], true);
+       /* if (row.hasClass("sortAscend")){
 
 
             row.removeClass("sortAscend");
@@ -118,15 +116,17 @@ Template.allWebsitesTable.events({
         {
 
             row.addClass("sortAscend");
-        }
+        }*/
 
     },
 
     "click .js-sort-by-upvotes": function(event){
-
+        var row = $(event.target);
+        SortManager.sortCollection(Websites, ["upVotes"], true);
     },
 
     "click .js-sort-by-name": function(event){
-
+        var row = $(event.target);
+        SortManager.sortCollection(Websites, ["title"], false);
     }
 });

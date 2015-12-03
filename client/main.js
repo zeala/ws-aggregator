@@ -77,7 +77,8 @@ Template.body.helpers({
 
 Template.website_list.helpers({
     websites:function(){
-        var sites =  Websites.find({}, {sort: {upVotes: -1, createdOn: -1},  limit: Session.get("websiteLimit")});
+        var sites =  SortManager.sortCollection(Websites, ["upVotes", "createdOn"], true ,Session.get("websiteLimit") );
+        //Websites.find({}, {sort: {upVotes: -1, createdOn: -1},  limit: Session.get("websiteLimit")});
         return sites;
     }
 });
@@ -141,8 +142,6 @@ Template.website_item.helpers({
     },
 
     websiteData: function(){
-        //console.log("Session.get(url) : " + Session.get(this.url))
-        console.log("--- website data : " + Session.get(this.url));
         return Session.get(this.url);
     }
 });
@@ -155,7 +154,18 @@ Template.websiteDetailsFull.helpers({
     },
 
     allSites: function(){
-        var sites =  Websites.find({}, {sort: {upVotes: -1, createdOn: -1}});
+        var sortFields = Session.get("sortFields");
+        var sortFieldsOrder = Session.get("sortFieldsOrder");
+        var sites;
+        if (sortFields == undefined)
+        {
+            sites =  Websites.find({}, {sort: {upVotes: -1, createdOn: -1}});
+        }else
+        {
+            var desc = sortFieldsOrder == -1;
+            sites = SortManager.sortCollection(Websites, sortFields, desc );
+        }
+
         return sites;
     }
 });
