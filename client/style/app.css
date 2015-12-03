@@ -2,7 +2,7 @@
 */
 
 .navbar{
-    height: 50px;
+    min-height: 50px;
 }
 
 .navbar-brand{
@@ -114,5 +114,21 @@ li #item-content{
 }
 li:nth-child(odd) #item-content {
     background: white;
+}
 
+/* Websites table in the details view*/
+.websites-panel-heading{
+    background-color: aliceblue !important;
+    padding: 8px 5px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.websites-table{
+    font-size: 12px;
+    padding: 4px;
+}
+
+.websites-table-row:nth-of-type(odd){
+    background-color: aliceblue !important;
 }
