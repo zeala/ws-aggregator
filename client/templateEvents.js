@@ -71,7 +71,7 @@ Template.website_form.events({
         var createdBy = Meteor.userId();
 
         if (Meteor.user()){
-            Websites.insert({
+            var newWebsite = Websites.insert({
                 url: url,
                 title: title,
                 description: description,
@@ -80,6 +80,9 @@ Template.website_form.events({
                 upVotes: 0,
                 downVotes: 0
             });
+
+            console.log(newWebsite);
+            UserActivityTracker.updateWebsitesByUser(newWebsite, Meteor.user._id);
         }
 
         event.target.url.value = "";

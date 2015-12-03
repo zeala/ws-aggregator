@@ -1,14 +1,20 @@
 <!-- template that displays several website items -->
 <template name="website_list">
     <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <ol class="list-unstyled">
+                    {{#each websites}}
+                        <li>
+                            {{>website_item}}
+                        </li>
 
-    <ol class="list-unstyled">
-        {{#each websites}}
-            <li>
-                {{>website_item}}
-            </li>
-
-        {{/each}}
-    </ol>
+                    {{/each}}
+                </ol>
+            </div>
+            <div id="aside" class="col-sm-4  hidden-xs">
+                {{> userPreferences }}
+            </div>
+        </div>
     </div>
 </template>
