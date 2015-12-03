@@ -5,6 +5,7 @@
 
 body {
     padding-top: 70px;
+    margin-bottom: 40px;
 }
 
 hr {
@@ -12,9 +13,7 @@ hr {
     margin-bottom: 9px;
 }
 
-.navbar{
-    background-color: #e6eef5;
-}
+
 
 .fa.fa-search{
     top: 5px;

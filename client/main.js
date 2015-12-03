@@ -149,11 +149,13 @@ Template.website_item.helpers({
 
 Template.websiteDetailsFull.helpers({
     addedOn: function(){
+        Session.get("selectedWebsite");
+        console.log("session .getSelected website : " + Session.get("selectedWebsite"));
         return moment(this.createdOn).format("ddd, DD MMMM YYYY");
     },
 
     allSites: function(){
-        var sites =  Websites.find({}, {sort: {upVotes: -1, createdOn: -1},  limit: Session.get("websiteLimit")});
+        var sites =  Websites.find({}, {sort: {upVotes: -1, createdOn: -1}});
         return sites;
     }
 });

@@ -25,20 +25,10 @@ Template.searchInputBox.events({
 
     "click .search-list-item": function(event, element){
         console.log(this);
-        //Session.set("votes", ['votes', website_item.upVotes, website_item.downVotes])
         var website_item = Websites.find({_id: this._id}).fetch()[0];
         Session.set("votes", ['votes', website_item.upVotes, website_item.downVotes])
     }
 
-
-   /*  $('body').on('click', function (e) {
-     if (!$('li.dropdown.mega-dropdown').is(e.target)
-     && $('li.dropdown.mega-dropdown').has(e.target).length === 0
-     && $('.open').has(e.target).length === 0
-     ) {
-     $('li.dropdown.mega-dropdown').removeClass('open');
-     }
-     });*/
 });
 
 
@@ -106,5 +96,37 @@ Template.website_details.events({
         console.log(this);
         console.log(Template.parentData().websiteData);
         console.log(Session.get(this.url));
+    }
+});
+
+Template.allWebsitesTable.events({
+    "click .js-table-row": function(event){
+        StateController.updateSelecteWebsite(this);
+        Router.go("/website/" + this._id);
+
+    },
+    "click .js-sort-by-downvotes": function(event){
+        console.log("sort by down votes");
+        var row = $(event.target);
+        console.log("row" + row);
+        console.log(Template.parentData());
+        if (row.hasClass("sortAscend")){
+
+
+            row.removeClass("sortAscend");
+        }else
+        {
+
+            row.addClass("sortAscend");
+        }
+
+    },
+
+    "click .js-sort-by-upvotes": function(event){
+
+    },
+
+    "click .js-sort-by-name": function(event){
+
     }
 });
