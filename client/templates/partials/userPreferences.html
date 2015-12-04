@@ -1,17 +1,32 @@
 <template name="userPreferences">
     <div  class="panel panel-default">
         <div class="panel-heading websites-panel-heading"><i class="fa fa-globe fa-lg"></i> Your websites</div>
-        {{> simpleTable sites=addedSites}}
+        {{#if noAddedSites addedSites}}
+            <div>
+                <p class="message-text">You haven't added any sites</p>
+            </div>
+        {{else}}
+            {{> simpleTable sites=addedSites}}
+        {{/if}}
 
     </div>
     <div  class="panel panel-default">
         <div class="panel-heading websites-panel-heading"><i class="fa fa-thumbs-o-up fa-lg"></i> You like</div>
+    {{#if noUpVotes upVotedSites }}
+        <div>
+            <p class="message-text">No votes</p>
+        </div>
+    {{else}}
         {{> simpleTable sites=upVotedSites}}
+    {{/if}}
 
     </div>
     <div  class="panel panel-default">
         <div class="panel-heading websites-panel-heading"><i class="fa fa-thumbs-o-down fa-lg"></i> You don't like</div>
-        {{> simpleTable sites=downVotedSites}}
-
+        {{#if noDownVotes downVotedSites}}
+            <p class="message-text">No votes</p>
+        {{else}}
+            {{> simpleTable sites=downVotedSites}}
+        {{/if}}
     </div>
 </template>

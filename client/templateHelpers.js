@@ -128,6 +128,8 @@ Template.userPreferences.helpers({
     },
 
     upVotedSites: function(){
+        if (!Meteor.user()) return [];
+
         var userActivityObj = UserActivityTracker.getUser(Meteor.user()._id);
         var upVotedSitesObj = userActivityObj.upVotes;
         var siteIds = [];
@@ -146,6 +148,9 @@ Template.userPreferences.helpers({
     },
 
     downVotedSites: function(){
+
+        if (!Meteor.user()) return [];
+
         var userActivityObj = UserActivityTracker.getUser(Meteor.user()._id);
         var downVotedSitesObj = userActivityObj.downVotes;
         var siteIds = [];
@@ -159,10 +164,19 @@ Template.userPreferences.helpers({
 
         var siteCollection = Websites.find({_id: { $in: siteIds }});
         siteArray = siteCollection.fetch();
-
-
-
         return siteArray;
+    },
+    noDownVotes: function(downVotes){
+        if (!downVotes) return true;
+        return downVotes.length == 0;
+    },
+    noUpVotes: function(upVotes){
+        if (!upVotes) return true;
+        return upVotes.length == 0;
+    },
+    noAddedSites: function(addedSites){
+        if (!addedSites) return true;
+        return addedSites.length == 0;
     }
 });
 

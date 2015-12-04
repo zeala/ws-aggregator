@@ -2,8 +2,7 @@
 */
 
 .navbar{
-    min-height: 30px;
-    height: 50px;
+    min-height: 50px;
     background-color: #e6eef5;
 }
 
@@ -21,7 +20,8 @@
 
 #footer {
     padding: 5px;
-    height: 25px;
+    height: 30px;
+    min-height: 30px !important;
     background-color: gainsboro;
 }
 
@@ -159,6 +159,12 @@ li:nth-child(odd) #item-content {
 /* user preferences */
 .websites-simple-table-row {
     cursor: default;
+}
+
+.message-text{
+    font-size: 12px;
+    color: #999999;
+    padding: 10px;
 }
 
 /*.websites-simple-table-row:hover .fa-circle-thin,
