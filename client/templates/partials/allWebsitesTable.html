@@ -1,31 +1,33 @@
 <template name="allWebsitesTable">
-    <table class="table table-striped table-hover table-condensed websites-table">
-        <thead>
-        <tr class="js-select-item">
-            <th><a href="#" class="js-sort-by-name">Title</a> </th>
-            <th><a href="#" class="js-sort-by-upvotes">
-                <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
-            </a>
-            </th>
-            <th><a href="#" class="js-sort-by-downvotes">
-                <span class="fa fa-thumbs-o-down" aria-hidden="true"></span>
-            </a>
-            </th>
-        </tr>
-        </thead>
-        <tbody >
-        {{#each allSites}}
+    <div class="table-wrapper">
+        <table class="table table-striped table-hover table-condensed websites-table">
+            <thead>
+            <tr class="js-select-item">
+                <th><a href="#" class="js-sort-by-name">Title</a> </th>
+                <th><a href="#" class="js-sort-by-upvotes">
+                    <span class="fa fa-thumbs-o-up" aria-hidden="true"></span>
+                </a>
+                </th>
+                <th><a href="#" class="js-sort-by-downvotes">
+                    <span class="fa fa-thumbs-o-down" aria-hidden="true"></span>
+                </a>
+                </th>
+            </tr>
+            </thead>
+            <tbody >
+            {{#each allSites}}
 
-                <tr class="websites-table-row js-table-row">
+                    <tr class="websites-table-row js-table-row">
 
-                    <td>{{title}}</td>
-                    <td>{{upVotes}}</td>
-                    <td>{{downVotes}}</td>
+                        <td>{{title}}</td>
+                        <td>{{upVotes}}</td>
+                        <td>{{downVotes}}</td>
 
-                </tr>
+                    </tr>
 
-        {{/each}}
-        </tbody>
+            {{/each}}
+            </tbody>
 
-    </table>
+        </table>
+    </div>
 </template>

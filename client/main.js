@@ -16,7 +16,6 @@ $(window).scroll(function(event){
 
 //$('body').on('click', function (event) {
 $('body').click(function(event){
-    console.log(" body clicked")
     if (!$(".search-list-item").is(event.target)
         && $('.search-list-item').has(event.target).length === 0
         && $('.open').has(event.target).lenght === 0) {

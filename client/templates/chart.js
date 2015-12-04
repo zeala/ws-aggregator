@@ -1,6 +1,5 @@
 Template.chart.helpers({
     website_item: function(){
-        console.log("helpers, this : " + Template.parentData()._id);
         return Websites.find({_id: Template.parentData()._id}).fetch()[0];;
     }
 });

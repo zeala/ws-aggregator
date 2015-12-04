@@ -95,7 +95,6 @@ Template.website_item.helpers({
 Template.websiteDetailsFull.helpers({
     addedOn: function(){
         Session.get("selectedWebsite");
-        console.log("session .getSelected website : " + Session.get("selectedWebsite"));
         return moment(this.createdOn).format("ddd, DD MMMM YYYY");
     },
 
@@ -142,8 +141,6 @@ Template.userPreferences.helpers({
         var siteCollection = Websites.find({_id: { $in: siteIds }});
         siteArray = siteCollection.fetch();
 
-        console.log("upvoted sites by user ");
-        console.log(siteArray)
         return siteArray;
     },
 
@@ -175,7 +172,8 @@ Template.userPreferences.helpers({
         return upVotes.length == 0;
     },
     noAddedSites: function(addedSites){
-        if (!addedSites) return true;
+
+        if (!addedSites || addedSites.length == 0 || addedSites.fetch().length == 0) return true;
         return addedSites.length == 0;
     }
 });
