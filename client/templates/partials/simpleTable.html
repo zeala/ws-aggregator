@@ -1,0 +1,14 @@
+<template name="simpleTable">
+    <table class="table table-striped table-hover table-condensed websites-table">
+        <tbody >
+        {{#each sites}}
+
+            <tr class="websites-simple-table-row js-table-row">
+                <td><i class="fa fa-circle-thin"></i> {{title}}</td>
+            </tr>
+
+        {{/each}}
+        </tbody>
+
+    </table>
+</template>

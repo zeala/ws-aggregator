@@ -36,6 +36,7 @@ Template.website_item.events({
     "click .js-upvote":function(event){
         var website_id = this._id;
         if (VoteController.areVotingButtonsDisabled(website_id)) return;
+        console.log("calling addVote, website_id : " + website_id);
         //otherwise update the vote
         VoteController.addVote(website_id, true);
         return false;// prevent the button from reloading the page
@@ -111,16 +112,6 @@ Template.allWebsitesTable.events({
     "click .js-sort-by-downvotes": function(event){
         var row = $(event.target);
         SortManager.sortCollection(Websites, ["downVotes"], true);
-       /* if (row.hasClass("sortAscend")){
-
-
-            row.removeClass("sortAscend");
-        }else
-        {
-
-            row.addClass("sortAscend");
-        }*/
-
     },
 
     "click .js-sort-by-upvotes": function(event){
@@ -131,5 +122,13 @@ Template.allWebsitesTable.events({
     "click .js-sort-by-name": function(event){
         var row = $(event.target);
         SortManager.sortCollection(Websites, ["title"], false);
+    }
+});
+
+Template.simpleTable.events({
+    "click .js-table-row": function (event) {
+        StateController.updateSelecteWebsite(this);
+        Router.go("/website/" + this._id);
+
     }
 });

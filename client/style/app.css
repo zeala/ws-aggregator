@@ -147,6 +147,7 @@ li:nth-child(odd) #item-content {
     padding: 4px;
 }
 
+
 .websites-table-row{
     cursor: default;
 }
@@ -154,3 +155,34 @@ li:nth-child(odd) #item-content {
 .websites-table-row:nth-of-type(odd){
     background-color: aliceblue !important;
 }
+
+/* user preferences */
+.websites-simple-table-row {
+    cursor: default;
+}
+
+/*.websites-simple-table-row:hover .fa-circle-thin,
+.websites-simple-table-row .fa-spinner{
+    display: none;
+}
+
+.websites-simple-table-row:hover .fa-spinner{
+    display: inline;
+}*/
+
+
+.websites-simple-table-row:nth-of-type(even){
+    background-color: aliceblue !important;
+}
+
+/*
+.lock:hover .icon-unlock,
+.lock .icon-lock {
+    display: none;
+}
+fa-circle-thin
+fa-spinner
+
+.lock:hover .icon-lock {
+    display: inline;
+}*/

@@ -1,24 +1,17 @@
 <template name="userPreferences">
     <div  class="panel panel-default">
-        <div class="panel-heading websites-panel-heading">You added</div>
-        <ul>
-            {{#each addedSites}}
-                <li>{{title}}</li>
-             {{/each}}
-        </ul>
+        <div class="panel-heading websites-panel-heading"><i class="fa fa-globe fa-lg"></i> Your websites</div>
+        {{> simpleTable sites=addedSites}}
+
     </div>
     <div  class="panel panel-default">
-        <div class="panel-heading websites-panel-heading">You like</div>
-        <ul>
-            {{#each upVotedSites}}
-                <li>{{title}}</li>
-            {{/each}}
-        </ul>
+        <div class="panel-heading websites-panel-heading"><i class="fa fa-thumbs-o-up fa-lg"></i> You like</div>
+        {{> simpleTable sites=upVotedSites}}
+
     </div>
     <div  class="panel panel-default">
-        <div class="panel-heading websites-panel-heading">You don't like</div>
-        {{#each downVotedSites}}
-            <li>{{title}}</li>
-        {{/each}}
+        <div class="panel-heading websites-panel-heading"><i class="fa fa-thumbs-o-down fa-lg"></i> You don't like</div>
+        {{> simpleTable sites=downVotedSites}}
+
     </div>
 </template>
