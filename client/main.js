@@ -1,5 +1,5 @@
 /// infinite scroll
-Session.set("websiteLimit", 6);
+Session.set("websiteLimit", 10);
 lastScrollTop = 0;
 $(window).scroll(function(event){
 
@@ -28,7 +28,7 @@ Accounts.ui.config({
 });
 
 Comments.ui.config({
-    limit: 5, // default 10
+    limit: 10, // default 10
     loadMoreCount: 10, // default 20
     template: 'bootstrap', // default 'semantic-ui'
     defaultAvatar: 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'
