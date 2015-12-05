@@ -35,6 +35,9 @@ Template.website_item.helpers({
     buttonsDisabled: function(){
         return VoteController.areVotingButtonsDisabled(this._id);
     },
+    titleBtnTooltip: function(){
+      return "Go to the website"
+    },
     btnTooltip: function(){
         if(!Meteor.user()) {
             return "You must login to vote";

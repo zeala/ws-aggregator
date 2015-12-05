@@ -121,6 +121,10 @@
     border-radius: 3px;
 }
 
+.ws-item-title{
+    font-weight: bolder;
+    color: maroon;
+}
 
 .item-details-div{
     height: 18px;
@@ -178,29 +182,6 @@ li:nth-child(odd) #item-content {
     padding: 10px;
     margin-bottom: 0;
 }
-
-/*.websites-simple-table-row:hover .fa-circle-thin,
-.websites-simple-table-row .fa-spinner{
-    display: none;
-}
-
-.websites-simple-table-row:hover .fa-spinner{
-    display: inline;
-}*/
-
-
 .websites-simple-table-row:nth-of-type(even){
     background-color: aliceblue !important;
 }
-
-/*
-.lock:hover .icon-unlock,
-.lock .icon-lock {
-    display: none;
-}
-fa-circle-thin
-fa-spinner
-
-.lock:hover .icon-lock {
-    display: inline;
-}*/

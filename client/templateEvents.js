@@ -48,6 +48,10 @@ Template.website_item.events({
 
     },
 
+    "click .js-item-link": function(event){
+        Router.go("/website/" + this._id);
+    },
+
     "load" : function(event){
     }
 });
@@ -85,12 +89,6 @@ Template.website_form.events({
         event.target.description.value = "";
         $('#loginModal').modal('hide');
         return false;// stop the form submit from reloading the page
-
-    }
-});
-
-Template.website_details.events({
-    "click .js-get-data":function(event){
 
     }
 });
